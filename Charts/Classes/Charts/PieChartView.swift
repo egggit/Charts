@@ -8,7 +8,7 @@
 //  A port of MPAndroidChart for iOS
 //  Licensed under Apache License 2.0
 //
-//  https://github.com/danielgindi/Charts
+//  https://github.com/danielgindi/ios-charts
 //
 
 import Foundation
@@ -25,6 +25,8 @@ public class PieChartView: PieRadarChartViewBase
     private var _circleBox = CGRect()
     
     private var _drawXLabelsEnabled = true
+    
+    private var _drawOnlyHighlightSliceText = false
     
     /// array that holds the width of each pie-slice in degrees
     private var _drawAngles = [CGFloat]()
@@ -497,6 +499,30 @@ public class PieChartView: PieRadarChartViewBase
         {
             _transparentCircleRadiusPercent = newValue
             setNeedsDisplay()
+        }
+    }
+    
+
+    /// set this to true if you want to draw the text only on the hightlight slice
+    public var drawOnlyHighlightSliceText: Bool
+        {
+        get
+        {
+            return _drawOnlyHighlightSliceText
+        }
+        set
+        {
+            _drawOnlyHighlightSliceText = newValue
+            setNeedsDisplay()
+        }
+    }
+    
+    /// returns true if draw the text only on the hightlight slice
+    public var isDrawOnlyHighlightSliceText: Bool
+        {
+        get
+        {
+            return drawOnlyHighlightSliceText
         }
     }
     
